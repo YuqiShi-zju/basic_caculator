@@ -16,45 +16,172 @@ namespace basic_caculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string _currentInput = string.Empty; //当前输入的字符串
-
+        private string currentInput = "0";
+        private double currentValue = 0;
+        private string currentOperation = "";
+        private bool newInput = true;
 
         public MainWindow() //这一步相当于python的__init__方法
         {
             InitializeComponent(); //初始化窗体
-            
+
+            foreach (var child in ((Grid)Content).Children)
+            {
+                if (child is Button button)
+                {
+                    button.Click += Button_Click;
+                }
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button; //将sender转换为Button类型
-            if (button != null)
-            {
-                _currentInput += button.Content.ToString(); //将按钮的内容添加到当前输入字符串中
-                DisplayTextBox.Text = _currentInput; //更新显示文本框
-            }
+            Button button = (Button)sender;
+            string content = button.Content.ToString();
 
-            //处理不同的点击
-            if (button.Content.ToString() == "=") //如果点击的是等于按钮
+            // 处理不同类型的按钮点击
+            switch (content)
             {
-                try
-                {
-                    var result = new DataTable().Compute(_currentInput, null); //计算表达式的结果
-                    DisplayTextBox.Text = result.ToString(); //显示结果
-                    _currentInput = string.Empty; //清空当前输入
-                }
-                catch (Exception ex)
-                {
-                    DisplayTextBox.Text = "Error"; //如果计算出错，显示错误信息
-                    _currentInput = string.Empty; //清空当前输入
-                }
-            }
-            else if (button.Content.ToString() == "C") //如果点击的是清除按钮
-            {
-                _currentInput = string.Empty; //清空当前输入
-                DisplayTextBox.Text = string.Empty; //清空显示文本框
-            }
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    HandleNumber(content);
+                    break;
 
+                case ".":
+                    HandleDecimalPoint();
+                    break;
 
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    HandleOperation(content);
+                    break;
+
+                case "=":
+                    CalculateResult();
+                    break;
+
+                case "C":
+                    ClearAll();
+                    break;
+
+                case "CE":
+                    ClearEntry();
+                    break;
+
+                case "←":
+                    Backspace();
+                    break;
+            }
         }
+        private void HandleNumber(string number)
+        {
+            if (newInput || currentInput == "0")
+            {
+                currentInput = number;
+                newInput = false;
+            }
+            else
+            {
+                currentInput += number;
+            }
+            DisplayTextBox.Text = currentInput;
+        }
+
+        private void HandleDecimalPoint()
+        {
+            if (!currentInput.Contains("."))
+            {
+                currentInput += ".";
+                DisplayTextBox.Text = currentInput;
+                newInput = false;
+            }
+        }
+
+        private void HandleOperation(string operation)
+        {
+            if (!newInput)
+            {
+                CalculateResult();
+            }
+
+            currentValue = double.Parse(currentInput);
+            currentOperation = operation;
+            newInput = true;
+        }
+
+        private void CalculateResult()
+        {
+            if (string.IsNullOrEmpty(currentOperation)) return;
+
+            double newValue = double.Parse(currentInput);
+
+            switch (currentOperation)
+            {
+                case "+":
+                    currentValue += newValue;
+                    break;
+                case "-":
+                    currentValue -= newValue;
+                    break;
+                case "*":
+                    currentValue *= newValue;
+                    break;
+                case "/":
+                    if (newValue != 0)
+                        currentValue /= newValue;
+                    else
+                        currentInput = "Error";
+                    break;
+            }
+
+            if (currentInput != "Error")
+            {
+                currentInput = currentValue.ToString();
+                DisplayTextBox.Text = currentInput;
+            }
+
+            newInput = true;
+            currentOperation = "";
+        }
+
+        private void ClearAll()
+        {
+            currentInput = "0";
+            currentValue = 0;
+            currentOperation = "";
+            newInput = true;
+            DisplayTextBox.Text = currentInput;
+        }
+
+        private void ClearEntry()
+        {
+            currentInput = "0";
+            newInput = true;
+            DisplayTextBox.Text = currentInput;
+        }
+
+        private void Backspace()
+        {
+            if (currentInput.Length > 1)
+            {
+                currentInput = currentInput.Substring(0, currentInput.Length - 1);
+            }
+            else
+            {
+                currentInput = "0";
+                newInput = true;
+            }
+            DisplayTextBox.Text = currentInput;
+        }
+
     }
 }
