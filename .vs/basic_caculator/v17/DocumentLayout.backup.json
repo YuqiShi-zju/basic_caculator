@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\work\\code\\c#\\basic_caculator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD17D51-03FE-48F9-9694-04449C5E6B4F}|basic_caculator\\basic_caculator.csproj|d:\\work\\code\\c#\\basic_caculator\\basic_caculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7AD17D51-03FE-48F9-9694-04449C5E6B4F}|basic_caculator\\basic_caculator.csproj|solutionrelative:basic_caculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD17D51-03FE-48F9-9694-04449C5E6B4F}|basic_caculator\\basic_caculator.csproj|d:\\work\\code\\c#\\basic_caculator\\basic_caculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AD17D51-03FE-48F9-9694-04449C5E6B4F}|basic_caculator\\basic_caculator.csproj|solutionrelative:basic_caculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\work\\code\\c#\\basic_caculator\\basic_caculator\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "basic_caculator\\MainWindow.xaml",
+              "ToolTip": "D:\\work\\code\\c#\\basic_caculator\\basic_caculator\\MainWindow.xaml",
+              "RelativeToolTip": "basic_caculator\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-10T02:01:15.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\work\\code\\c#\\basic_caculator\\basic_caculator\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "basic_caculator\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\work\\code\\c#\\basic_caculator\\basic_caculator\\MainWindow.xaml.cs",
+              "RelativeToolTip": "basic_caculator\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:01:15.109Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
